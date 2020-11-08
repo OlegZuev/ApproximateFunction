@@ -1,8 +1,10 @@
 #pragma once
 #include <ostream>
 
-const int VARIANT = 0;
+const int VARIANT = 7;
 const int N = 5;
+const int COUNT_OF_ROWS = N + 1;
+const int COUNT_OF_COLUMNS = N + 2;
 const double X_0 = 1;
 const double X_N = 2;
 const double H = 0.2;
@@ -14,6 +16,8 @@ void spline_interpolation_method(double** table_SP, std::ostream& ostr);
 void mean_square_approximation_discrete(double** table_SP, std::ostream& ostr);
 
 void mean_square_approximation_integral(double** table_SP, std::ostream& ostr);
+
+void reverse_interpolation_method(double** table_SP, std::ostream& ostr);
 
 double func(double x);
 
@@ -29,7 +33,9 @@ void delete_matrix(double** matrix, int n, int m);
 
 void print_matrix(double** matrix, int n, int m, std::ostream& ostr);
 
-double func_Pn(double** table_SP, double x, double q, int k);
+void print_table_of_split_differences(double** table_SP, int n, int m, std::ostream& ostr, int precision);
+
+double func_Pn(double** table_SP, double x);
 
 double fi0(double tau);
 
