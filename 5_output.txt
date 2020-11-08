@@ -71,6 +71,6 @@ Table of split differences
 0.37617 1.800000 0.510497 
 0.76795 2.000000 
 
-c = 2.23205
-Root = 1.478012
-Discrepancy = Abs(f(x)-c) = 0.0193504052501647
+c = 2.2321
+Root = 1.47801
+Discrepancy = Abs(f(x)-c) = 0.0193504052501652

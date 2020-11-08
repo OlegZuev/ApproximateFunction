@@ -352,17 +352,11 @@ void reverse_interpolation_method(double** table_SP, std::ostream& ostr) {
 
 	calculate_table_of_split_differences(reverse_table_SP, COUNT_OF_ROWS, COUNT_OF_ROWS - 1, func);
 	print_table_of_split_differences(reverse_table_SP, COUNT_OF_ROWS, COUNT_OF_COLUMNS, ostr, 5);
+	double root = func_Pn(reverse_table_SP, 0);
 
-	double omega = 1;
-	double x = reverse_table_SP[0][1];
-	for (int i = 1; i < COUNT_OF_ROWS; ++i) {
-		omega *= -reverse_table_SP[i - 1][0]; // omega_i = (c - y_(i-1)) * omega_(i-1) and omega_0 = 1 
-		x += reverse_table_SP[0][i + 1] * omega;
-	}
-
-	ostr << "c = " << std::setprecision(5) << c << std::endl;
-	ostr << "Root = " << std::setprecision(6) << x << std::endl;
-	ostr << "Discrepancy = Abs(f(x)-c) = " << std::setprecision(16) << fabs(func(x) - c) << std::endl;
+	ostr << "c = " << std::setprecision(4) << c << std::endl;
+	ostr << "Root = " << std::setprecision(5) << root << std::endl;
+	ostr << "Discrepancy = Abs(f(x)-c) = " << std::setprecision(16) << fabs(func(root) - c) << std::endl;
 
 	delete_matrix(reverse_table_SP, COUNT_OF_ROWS, COUNT_OF_COLUMNS);
 }
